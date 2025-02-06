@@ -1,0 +1,46 @@
+- Webはアプリケーション層の話で、インターネットはIPのインターネット層の話
+  - URLはWebの住所で、IPアドレスはインターネットの住所
+- インターネッを通じて、日本からアメリカに通信
+  - 家庭内LAN
+  - 収容局
+  - 陸揚げ局
+  - 光海底ファイバの太平洋横断回線
+  - 陸揚げ局
+  - データセンター
+  - データセンター内の回線
+- URLとURI
+  - https://example.com/index.html
+    - httpsがスキーム
+    - example.comがホスト
+    - index.htmlがパス
+    - ftp://example.com:21/とか、ws://example.com:80/もURL
+  - URLはLocatorだから、リソースの住所。基本的にインターネット上の話
+  - URIはIdentifierだから、リソースの識別子。URLもURIの一種。
+    - URNも含む。urn:isbn:0451450523などの本の識別子
+    - URI = URL+URN
+- パスはホストに対する要求でしかない
+  - https://example.com/index.html
+  - example.comで名前解決してIPアドレスを取得して、そこに対して、GET /index.htmlというリクエストを送ってる
+    - 名前解決で宛先はIPアドレスとしてわかってるから、必ずしもホストは必要じゃないんだな
+  - HTTP 1.1ではhost: example.comも必須
+- webブラウザの動作
+  - www.example.comの名前解決
+  - 手に入れたIPアドレスに対して、TCPのコネクションを張る
+  - TCPのコネクションでHTTPリクエストを送る
+  - HTTPレスポンスを受け取る
+  - パースして画面表示
+- IETF, RFC
+  - Internet Engineering Task Force
+  - TCP/IP, HTTPなどのインターネットのプロトコルを策定する
+- etc/hostsでローカルの名前解決をいじれる
+- HTMLにimgタグが埋め込まれてたら、ブラウザがさらにその画像を取得するGETリクエストを送る
+
+# 後で確認
+- telnetでTCP通信して、HTTPリクエストを送る
+  - HTTPヘッダーは別々のTCPセグメントで送れることを確認
+  - ボディもContentLengthを事前に送って分けられる
+  - またチャンクでも分けられる
+- 陸揚げ局や海底ケーブルを確認
+  - traceroute
+  - ipinfo.io 
+  - https://www.submarinecablemap.com/
