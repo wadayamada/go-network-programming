@@ -26,8 +26,3 @@
 - wireshark
   - パケットキャプチャ
   - tcpストリームも見られる
-
-# やりたい
-- pingを試す
-- ICMPを試す
-- ICMP Time Exceedも見てみたい
